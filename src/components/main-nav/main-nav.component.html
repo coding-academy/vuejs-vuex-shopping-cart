@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+  <section class="container">
+    <div class="navbar-header" style="margin-top: -4px;">
+      <router-link to="/" class="navbar-brand" exact>CodingAcadmey</router-link>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li>
+          <router-link :to="{ name: 'shop' }">Shop</router-link>
+        </li>
+        <li>
+          <router-link :to="{name: 'cart'}">My Cart</router-link>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li v-if="!isLoggedIn">
+          <router-link :to="{ name: 'signin' }">Sign in</router-link>
+        </li>
+        <li v-if="!isLoggedIn">
+          <router-link :to="{ name: 'signup' }">Sign up</router-link>
+        </li>
+        <li v-if="isLoggedIn">
+          <a href="#" @click="signout">Sign out</a>
+        </li>
+        <li v-if="isLoggedIn">
+          <img src="~assets/profile.png" alt="" class="profile-img" />
+        </li>
+
+        <li class="dropdown" v-if="cartLength">
+          <a href="#" class="dropdown-toggle">
+            <span
+                    class="glyphicon glyphicon-shopping-cart"></span> {{cartLength}} - Items<span
+                  class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+            <li v-for="item in cart">
+                  <span class="item">
+                    <span class="item-left">
+                        <img :src="item.img" alt="" style="height: 80px;width: 200px;"/>
+                        <span class="item-info">
+                            <span>{{item.title}}</span>
+                            <b>{{item.price}}{{item.currency}}</b>
+                        </span>
+                    </span>
+
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right" @click.stop="removeFromCart(item)">x</button>
+                    </span>
+
+                </span>
+              <p class="item">Quantity: {{item.quantity}}</p>
+
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</nav>
+

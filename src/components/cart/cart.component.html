@@ -1,0 +1,75 @@
+<div class="container below-nav">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <div class="row">
+              <div class="col-xs-6">
+                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+              </div>
+              <div class="col-xs-6">
+                <router-link :to="{name: 'shop'}" class="btn btn-primary btn-sm btn-block">
+                  <span class="glyphicon glyphicon-share-alt">
+                  </span> Continue shopping
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <h3 v-if="!cartLength">Your cart is empty</h3>
+          <div class="row" v-for="item in cart" style="margin-bottom: 1.5em;">
+            <div class="col-xs-2"><img class="img-responsive" :src="item.img" style="height: 80px;">
+            </div>
+            <div class="col-xs-4">
+              <h4 class="product-name"><strong>{{item.title}}</strong></h4>
+              <h4>
+                <small>{{item.description}}</small>
+              </h4>
+            </div>
+            <div class="col-xs-6">
+              <div class="col-xs-6 text-right">
+                <h6><strong>{{item.price}} <span class="text-muted">x</span></strong></h6>
+              </div>
+              <div class="col-xs-4">
+                <select class="form-control"
+                        @change="updateQuantity( { product: item, quantity: $event.target.value } );addToCart(item)"
+                        name="quantity"
+                        :value="item.quantity">
+                  <option value="">0</option>
+                  <option v-for="n in 10">{{n}}</option>
+                </select>
+              </div>
+              <div class="col-xs-2">
+                <button type="button" class="btn btn-link btn-xs"
+                        @click="removeFromCart(item)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="panel-footer">
+          <div class="row text-center">
+            <div class="col-xs-9">
+              <h4 class="text-right">Total: <strong>${{cartTotal}}</strong></h4>
+            </div>
+            <div class="col-xs-3">
+              <button type="button" class="btn btn-success btn-block" @click="checkout" :disabled="!cartLength">
+                Checkout <span v-if="checkoutPending">Checking order...</span>
+              </button>
+            </div>
+            <div class="col-xs-12">
+              <p v-if="error">{{error}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

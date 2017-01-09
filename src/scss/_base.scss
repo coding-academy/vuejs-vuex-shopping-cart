@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  color: var(--main-color);
+  font-family: var(--primary-font);
+  font-size: 16px;
+  @include for-mobile-only {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul,
+fieldset {
+  padding: 0;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: var(--primary-font);
+}

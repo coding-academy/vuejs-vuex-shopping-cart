@@ -1,0 +1,12 @@
+<div class="container below-nav">
+  <div class="row">
+    <p v-if="loading">Loading....</p>
+    <div>
+      <div class="col-xs-18 col-sm-4" v-for="product in products">
+        <product :product="product"
+                 @quantityChange="updateQuantity( { quantity: $event.quantity, product: $event.product} );addToCart($event.product)"></product>
+      </div>
+    </div>
+
+  </div>
+</div>
