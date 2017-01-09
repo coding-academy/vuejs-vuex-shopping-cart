@@ -5,6 +5,7 @@ import Signin from './components/signin';
 import Signup from './components/signup';
 import Shop from './components/shop';
 import Cart from './components/cart';
+import Admin from './components/admin/admin';
 
 const routes = [{
   path     : '/',
@@ -30,6 +31,12 @@ const routes = [{
     name     : 'cart',
     component: Cart
   },
+  {
+    path     : '/admin',
+    name     : 'admin',
+    component: Admin
+  },
+  
   { path: '*', redirect: { name: 'home' } }];
 
 const router = new VueRouter({

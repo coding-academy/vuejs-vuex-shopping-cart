@@ -2,9 +2,6 @@ import authService from '../../services/auth.service';
 import {SIGN_IN, SIGN_OUT} from '../../modules/auth/auth.module';
 
 export default  {
-  beforeRouteEnter ( to, from, next ) {
-    authService.protectRoute(next);
-  },
   mounted() {
     // console.log(this.$router);
     // console.log(this.$route);

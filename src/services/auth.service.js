@@ -64,9 +64,10 @@ function isLoggedIn() {
  */
 function protectRoute( next ) {
   if( isLoggedIn() ) {
-    next('/');
+    next();
+  } else {
+    next(false);
   }
-  next();
 }
 
 export default {
