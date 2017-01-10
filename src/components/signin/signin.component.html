@@ -17,10 +17,7 @@
           <div class="form-group" :class="{'has-error': errors.has('user.password') }">
             <input class="form-control" placeholder="Password"
                    type="password"
-                   v-model="user.password"
-                   v-validate.initial="user.password" data-vv-rules="required|min:6">
-            <span class="text-danger"
-                  v-if="errors.has('user.password:min')">The field must be at least 6 characters.</span>
+                   v-model="user.password">
           </div>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">

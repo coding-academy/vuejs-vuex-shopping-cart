@@ -20,9 +20,11 @@
             <input class="form-control" placeholder="Password"
                    type="password"
                    v-model="user.password"
-                   v-validate.initial="user.password" data-vv-rules="required|min:6">
+                   v-validate.initial="user.password" data-vv-rules="required|min:6|max:12">
             <span class="text-danger"
                   v-if="errors.has('user.password:min')">The field must be at least 6 characters.</span>
+            <span class="text-danger"
+                  v-if="errors.has('user.password:max')">Too much</span>                  
           </div>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">
