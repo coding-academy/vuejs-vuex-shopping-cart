@@ -7,7 +7,6 @@ export default {
   methods : {
     ...mapMutations({
       updateQuantity: UPDATE_QUANTITY,
-      addToCart     : ADD_TO_CART,
       removeFromCart: REMOVE_FROM_CART
     }),
     checkout() {

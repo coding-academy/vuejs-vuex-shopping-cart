@@ -3,7 +3,7 @@ import authModule from './modules/auth/auth.module';
 import shopModule from './modules/shop/shop.module';
 import cartModule from './modules/cart/cart.module';
 
-const debug = process.env.NODE_ENV !== 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 export default new Vuex.Store({
   modules: {
@@ -11,5 +11,5 @@ export default new Vuex.Store({
     shop: shopModule,
     cart : cartModule
   },
-  strict : debug
+  strict : !isProduction
 })

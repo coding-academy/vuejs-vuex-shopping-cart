@@ -22,7 +22,8 @@ export default {
       'cart'
     ]),
     ...mapGetters({
-        isLoggedIn: 'isLoggedIn'
+        isLoggedIn: 'isLoggedIn',
+        user: 'user'
       }
     ),
   }

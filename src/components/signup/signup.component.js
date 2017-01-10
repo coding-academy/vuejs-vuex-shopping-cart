@@ -1,5 +1,5 @@
 import authService from '../../services/auth.service';
-
+import {SIGN_IN} from '../../modules/auth/auth.module';
 export default  {
   data   : () => {
     return {
@@ -13,8 +13,7 @@ export default  {
       if( this.errors.any() ) return;
 
       authService.signup(user).then(res => {
-        // TODO:
-        //this.$store.commit('setSession');
+        this.$store.commit(SIGN_IN);
         this.$router.push({ name: 'shop' });
       });
     }

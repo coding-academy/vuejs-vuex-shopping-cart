@@ -18,14 +18,14 @@ export default  {
       if( this.errors.any() ) return;
 
       authService.signin(user).then(res => {
-        this.$store.commit(SIGN_IN);
+        this.$store.commit(SIGN_IN, res);
         this.$router.go(-1);
-        // this.$router.push({ name: 'shop' });
       }).catch(err => {
-        this.error = err.error;
+        err.json().then(res => this.error = res.error);
       })
 
     }
   }
 }
+
 

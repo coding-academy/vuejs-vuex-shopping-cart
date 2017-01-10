@@ -18,6 +18,7 @@
           </div>
         </div>
 
+
         <div class="panel-body">
           <h3 v-if="!cartLength">Your cart is empty</h3>
           <div class="row" v-for="item in cart" style="margin-bottom: 1.5em;">
@@ -35,7 +36,7 @@
               </div>
               <div class="col-xs-4">
                 <select class="form-control"
-                        @change="updateQuantity( { product: item, quantity: $event.target.value } );addToCart(item)"
+                        @change="updateQuantity( { product: item, quantity: $event.target.value } )"
                         name="quantity"
                         :value="item.quantity">
                   <option value="">0</option>

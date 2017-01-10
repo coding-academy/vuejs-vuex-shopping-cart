@@ -10,6 +10,7 @@ const state = {
   products: [],
 };
 
+
 const actions = {
   getProducts ( { commit } ) {
     if( state.products.length ) {
@@ -31,6 +32,9 @@ const mutations = {
   },
   [GET_PRODUCTS_SUCCESS] ( state, products ) {
     state.products = products;
+    state.loading = false;
+  },
+  [GET_PRODUCTS_ERROR] ( state, products ) {
     state.loading = false;
   },
   [UPDATE_QUANTITY]( _, { product, quantity } ) {

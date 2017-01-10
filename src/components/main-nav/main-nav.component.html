@@ -27,7 +27,7 @@
           <a href="#" @click="signout">Sign out</a>
         </li>
         <li v-if="isLoggedIn">
-          <img src="~assets/profile.png" alt="" class="profile-img" />
+          <img src="~assets/profile.png" :title="user.username" class="profile-img" />
         </li>
 
         <li class="dropdown" v-if="cartLength">
