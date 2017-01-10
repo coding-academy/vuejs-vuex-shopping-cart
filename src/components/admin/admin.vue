@@ -13,7 +13,6 @@
     name: 'admin',
     props: [],
     beforeRouteEnter ( to, from, next ) {
-      console.log('BEFORE');
       authService.protectRoute(next);
     },    
     mounted() {

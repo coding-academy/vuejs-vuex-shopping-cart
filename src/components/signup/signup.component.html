@@ -11,6 +11,8 @@
           <div class="form-group" :class="{'has-error': errors.has('user.email') }">
             <input type="email" class="form-control" placeholder="Email" autofocus v-model="user.email"
                    v-validate.initial="user.email" data-vv-rules="required|email">
+            <span class="text-danger"
+                  v-if="errors.has('user.email')">Email please</span>                   
           </div>
 
 
