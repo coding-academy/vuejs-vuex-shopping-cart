@@ -4,7 +4,7 @@
     <div>
       <div class="col-xs-12 col-sm-4" v-for="product in products">
         <product :product="product"
-                 @quantityChange="updateQuantity( { quantity: $event.quantity, product: $event.product} );addToCart($event.product)"></product>
+                 @quantityChange="whenQuantityChanges"></product>
       </div>
     </div>
 

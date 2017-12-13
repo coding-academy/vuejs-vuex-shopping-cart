@@ -36,7 +36,7 @@
               </div>
               <div class="col-xs-4">
                 <select class="form-control"
-                        @change="updateQuantity( { product: item, quantity: $event.target.value } )"
+                        @change="whenQuantityChanges( { item, quantity: +$event.target.value } )"
                         name="quantity"
                         :value="item.quantity">
                   <option value="">0</option>

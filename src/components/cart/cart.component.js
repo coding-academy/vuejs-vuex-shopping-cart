@@ -1,12 +1,13 @@
 import {mapGetters, mapMutations} from 'vuex';
 import authService from '../../services/auth.service';
-import {ADD_TO_CART, REMOVE_FROM_CART} from '../../modules/cart/cart.module';
-import {UPDATE_QUANTITY} from '../../modules/shop/shop.module';
+import {UPDATE_CART, REMOVE_FROM_CART} from '../../modules/cart/cart.module';
 
 export default {
   methods : {
+    whenQuantityChanges({item, quantity}){
+      this.$store.commit({type: UPDATE_CART, item, quantity});
+    },
     ...mapMutations({
-      updateQuantity: UPDATE_QUANTITY,
       removeFromCart: REMOVE_FROM_CART
     }),
     checkout() {

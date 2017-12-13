@@ -3,7 +3,7 @@ export const SIGN_OUT = 'auth/SIGN_OUT';
 
 const state = {
   isLoggedIn: !!localStorage.getItem('token'),
-  user: JSON.parse(localStorage.getItem('user'))
+  user: JSON.parse(localStorage.getItem('user') || 'null') 
 };
 
 const mutations = {

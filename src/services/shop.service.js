@@ -1,8 +1,5 @@
-/**
- *
- * @returns {Promise}
- */
-export function getProducts() {
+
+function getProducts() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(generateItems());
@@ -10,7 +7,7 @@ export function getProducts() {
   })
 }
 
-export function checkout() {
+function checkout() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve('success');
@@ -18,7 +15,7 @@ export function checkout() {
   })
 }
 
-export function generateItems() {
+function generateItems() {
   const skills = ['angular2',
     'web',
     'ionic',

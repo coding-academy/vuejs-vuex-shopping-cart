@@ -6,7 +6,7 @@
     <p class="price">{{product.price}}{{product.currency}}</p>
     <p><b>Quantity:</b></p>
     <select class="form-control"
-            @change="$emit('quantityChange', {quantity: $event.target.value, product} )"
+            @change="$emit('quantityChange', {quantity: +$event.target.value, product} )"
             name="quantity"
             :value="product.quantity">
       <option>0</option>

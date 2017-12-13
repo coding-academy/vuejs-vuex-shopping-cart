@@ -4,6 +4,7 @@ export default  {
   data   : () => {
     return {
       user : { email: '', password: '' },
+      // TODO: display the error
       error: ""
     }
   },

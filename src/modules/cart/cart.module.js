@@ -1,4 +1,5 @@
 export const ADD_TO_CART = 'cart/ADD_TO_CART';
+export const UPDATE_CART = 'cart/UPDATE_CART';
 export const REMOVE_FROM_CART = 'cart/REMOVE_FROM_CART';
 export const CHECKOUT = 'cart/CHECKOUT';
 export const CHECKOUT_SUCCESS = 'cart/CHECKOUT_SUCCESS';
@@ -18,6 +19,14 @@ const mutations = {
     if( !itemExists ) {
       state.items.push(item);
     }
+  },
+  [UPDATE_CART]( state, {item, quantity} ) {
+    item.quantity = quantity;
+    let itemIdx = state.items.indexOf(item);
+    if( itemIdx === -1 && quantity > 0 ) {
+      state.items.push(item);
+    } else if (quantity === 0) state.items.splice(itemIdx, 1);
+
   },
   [REMOVE_FROM_CART]( state, item ) {
     item.quantity = 0;
