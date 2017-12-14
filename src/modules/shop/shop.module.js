@@ -30,7 +30,7 @@ const getters = {
 
 
 const actions = {
-  getProducts ( { commit } ) {
+  [GET_PRODUCTS] ( { commit } ) {
     if( state.products.length ) {
       commit(GET_PRODUCTS_SUCCESS, state.products);
       return;
