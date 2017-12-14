@@ -1,13 +1,13 @@
 import Vue from 'vue';
 
-function signin( { email, password } ) {
+function signin( user ) {
   return new Promise(( resolve, reject ) => {
-    if( password === '123456' ) {
+    if( user.password === '123456' ) {
       const token = 'JWT';
       resolve({
         token
       });
-      setSession(token);
+      setSession(token, user);
     } else {
       reject({
         error: 'Email/Password not valid'

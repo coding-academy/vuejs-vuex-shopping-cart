@@ -26,7 +26,6 @@ const mutations = {
     if( itemIdx === -1 && quantity > 0 ) {
       state.items.push(item);
     } else if (quantity === 0) state.items.splice(itemIdx, 1);
-
   },
   [REMOVE_FROM_CART]( state, item ) {
     item.quantity = 0;

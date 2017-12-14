@@ -39,8 +39,8 @@ function generateItems() {
     'design',
     'database'];
 
-  return skills.reduce(( acc, skill, i ) => {
-    acc.push({
+  return skills.map(( skill, i ) => {
+    return {
       id         : i,
       title      : `Mastering ${skill}`,
       img        : `https://hotjs.net/img/Logos/${skill}.png`,
@@ -49,9 +49,8 @@ function generateItems() {
       currency   : '$',
       quantity   : 0,
       description: `Buy this lecture to master your ${skill} skill.`,
-    });
-    return acc;
-  }, []);
+    };
+  })
 }
 
 export default {
